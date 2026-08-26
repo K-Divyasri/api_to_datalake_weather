@@ -1,0 +1,11 @@
+# Core pipeline
+requests>=2.31      # calling the weather API over HTTP
+pandas>=2.0         # flattening JSON into tabular data
+pyarrow>=14.0       # the engine that reads/writes Parquet
+
+# Optional but used by the project
+python-dotenv>=1.0  # load settings from a local .env file
+duckdb>=0.10        # query the partitioned Parquet lake with SQL (sql/analysis.sql)
+
+# Dev / testing
+pytest>=8.0

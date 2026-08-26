@@ -1,0 +1,17 @@
+# Secrets / local config
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# The collected data lake. See the note in the README: for a portfolio repo you
+# usually DO want to commit a little sample data so the project isn't empty, but
+# you don't want gigabytes of it. Un-ignore data/ (or a sample of it) on purpose.
+data/
