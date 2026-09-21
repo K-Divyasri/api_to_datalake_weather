@@ -74,7 +74,7 @@ the hourly schedule uses the exact same steps.
 
 ## Step 3 — Let `data/` be committed
 
-There's a catch. `.gitignore` ignores `data/` — sensible on
+There's a catch. `.gitignore` ignores `data/`, sensible on
 your laptop, where you don't want to commit gigabytes of local runs. But for the
 *hosted* version, committing the data IS the storage mechanism. So for the repo
 you host, remove the lake from the ignore list.
