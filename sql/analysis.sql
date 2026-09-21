@@ -3,7 +3,7 @@
 -- DuckDB reads partitioned Parquet straight off disk — no server, no load step.
 -- Run these after you've collected some data (run_pipeline.py a few times).
 --
--- From the build_from_scratch/ folder:
+-- From the repo root:
 --     duckdb
 --     .read sql/analysis.sql
 -- or just paste queries one at a time into the duckdb shell.

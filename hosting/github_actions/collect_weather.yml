@@ -1,7 +1,7 @@
 # Hourly weather collection, scheduled and hosted free on GitHub Actions.
 #
 # WHERE THIS GOES: copy it to  .github/workflows/collect_weather.yml  at the ROOT
-# of your repo (not inside this project folder). GitHub only runs workflows that
+# of your repo (not inside the hosting/ folder). GitHub only runs workflows that
 # live in .github/workflows/ on the default branch.
 #
 # WHAT IT DOES: every hour it checks out the repo, installs Python, runs the
@@ -41,20 +41,18 @@ jobs:
           cache: pip
 
       - name: Install dependencies
-        working-directory: data_engineer/03_api_to_datalake_weather/build_from_scratch
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Run the collector
-        working-directory: data_engineer/03_api_to_datalake_weather/build_from_scratch
         run: python run_pipeline.py
 
       - name: Commit the new data
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data_engineer/03_api_to_datalake_weather/build_from_scratch/data
+          git add data
           # Only commit if something actually changed, so empty hours don't fail.
           if git diff --cached --quiet; then
             echo "No new data to commit."

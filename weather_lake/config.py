@@ -25,7 +25,7 @@ except ImportError:
 
 # --- Where data lives -------------------------------------------------------
 # The project root is two levels up from this file:
-#   build_from_scratch/weather_lake/config.py  ->  build_from_scratch/
+#   weather_lake/config.py  ->  the repo root
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = Path(os.getenv("DATA_DIR", PROJECT_ROOT / "data"))
 

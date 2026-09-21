@@ -24,7 +24,7 @@ If you've never used Git, read `knowledge/READING_LIST.md` (Git section) first �
 ten minutes is enough. Then, from the project root:
 
 ```bash
-# from data_engineer/03_api_to_datalake_weather/
+# from the repo root
 git init
 git add .
 git commit -m "Weather data-lake pipeline"
@@ -41,11 +41,10 @@ git push -u origin main
 
 Your code is now on GitHub. The schedule won't run yet — we add it next.
 
-> Note on repo layout: the workflow file assumes this project sits at
-> `data_engineer/03_api_to_datalake_weather/` inside the repo, matching your
-> folders. If you instead push *just this project* as the repo root, delete the
-> `data_engineer/03_api_to_datalake_weather/` prefix from the `working-directory:`
-> and the `git add` path in the workflow.
+> Note on repo layout: the workflow file assumes this project is the repo root,
+> so it has no `working-directory:` and the `git add` path is just `data`. If you
+> instead nest this project in a subfolder of a bigger repo, add that subfolder as
+> a `working-directory:` and prefix the `git add` path with it.
 
 ---
 
@@ -75,12 +74,12 @@ the hourly schedule uses the exact same steps.
 
 ## Step 3 — Let `data/` be committed
 
-There's a catch. `build_from_scratch/.gitignore` ignores `data/` — sensible on
+There's a catch. `.gitignore` ignores `data/` — sensible on
 your laptop, where you don't want to commit gigabytes of local runs. But for the
 *hosted* version, committing the data IS the storage mechanism. So for the repo
 you host, remove the lake from the ignore list.
 
-Open `build_from_scratch/.gitignore` and delete (or comment out) the `data/`
+Open `.gitignore` and delete (or comment out) the `data/`
 line. Commit that change. Now the workflow's `git add ... data` actually stages
 the new files.
 

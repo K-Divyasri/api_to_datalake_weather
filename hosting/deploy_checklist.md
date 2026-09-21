@@ -5,7 +5,7 @@ Tick these off the first time you ship it. The full explanation for each is in
 
 ## Before you push
 
-- [ ] It runs locally: `cd build_from_scratch && python run_pipeline.py` writes a
+- [ ] It runs locally: `python run_pipeline.py` writes a
       Parquet file with no errors.
 - [ ] Tests pass: `pytest` is green.
 - [ ] No secrets in the code. (This project has none — Open-Meteo needs no key —
@@ -26,7 +26,7 @@ Tick these off the first time you ship it. The full explanation for each is in
 - [ ] Checked the `working-directory:` and `git add` paths in the workflow match
       where the project actually sits in your repo.
 - [ ] Removed (or commented out) the `data/` line in
-      `build_from_scratch/.gitignore` so collected data can be committed.
+      `.gitignore` so collected data can be committed.
 - [ ] Committed and pushed both changes.
 
 ## Verify it works
@@ -54,6 +54,6 @@ Tick these off the first time you ship it. The full explanation for each is in
 ## A week later
 
 - [ ] The lake has real history — dozens of partitions across several days.
-- [ ] `duckdb` + `.read build_from_scratch/sql/analysis.sql` shows trends per city.
+- [ ] `duckdb` + `.read sql/analysis.sql` shows trends per city.
 - [ ] You can explain, out loud, why the data is Parquet, why it's partitioned by
       date, and why re-running an hour doesn't duplicate anything.
